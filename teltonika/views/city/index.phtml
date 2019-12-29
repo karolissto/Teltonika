@@ -71,7 +71,7 @@
         echo '</table>';
 
         echo '<div style="text-align: center">';
-        $limit=3;
+        $limit=$_SESSION['limit'];
         $pn=1;
 
 
@@ -90,11 +90,13 @@
             $currCount = count($this->view_data);                       // Get count of currently displayed data
             $total_records = Db::queryDB($query)->fetchColumn();        // Get count of all data
 
+
+
             if($currCount < $limit)                                     // Check if currently displayed data count is lower than the limit
                 $total_records = $currCount;                            // If yes, set total_records to currently displayed data count
-
+            echo $total_records . ' ' . $limit;
             $total_pages = ceil($total_records / $limit);         // Calculate page count
-
+            echo $total_pages;
             $pagLink = "";
 
             for ($i = 1; $i <= $total_pages; $i++) {                    // Iterate through page count
