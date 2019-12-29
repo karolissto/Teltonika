@@ -1,0 +1,115 @@
+
+
+<?php include VIEW . 'header.phtml';?>
+
+<form action="/city/search/<?php echo $this->view_id ?> "method="POST">
+    <div class="input-group center">
+
+        <input type="text" class="form-control" name="search" id="search" placeholder="Search" >
+        <button class="btn " type="submit"  style="text-align: center; "><i class="fas fa-search"></i></button>
+    </div>
+</form>
+
+<form action="/city/filter/<?php echo $this->view_id ?>" method="POST">
+    <div class="input-group center">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Created from/to</span>
+        </div>
+        <input type="date" class="form-control" name="from" id="from" class="form-control" required>
+        <input type="date" class="form-control" name="to" id="to" class="form-control" required>
+        <button class="btn " type="submit"  style="text-align: center; "><i class="fas fa-filter"></i></button>
+    </div>
+</form>
+
+
+<table class="table center" >
+    <thead style="background-color: blue">
+    <tr>
+        <th scope="col">
+            <?php
+                echo '<a class="sort" href="/city/sortCities/' . $this->view_id . '">Name</a>';
+            ?>
+        </th>
+        <th scope="col">Area</th>
+        <th scope="col">Population</th>
+        <th scope="col">Post code</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+        <th scope="col " style="padding: 0; padding-left: 10px; padding-bottom: 11px; align-content: center; background-color: #5a83b7" >
+            <a class="sort" href="/country/index/"><i class="fas fa-chevron-left"></i></a>
+        </th>
+        <th scope="col " width="50px" style="text-align: center; background-color: #5a83b7">
+            <?php
+               echo '<a class="sort" href="/city/add/' . $this->view_id . '"><i class="fas fa-plus"></i></a>';
+            ?>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <?php
+        if(is_array($this->view_data))
+            $cities = $this->view_data;
+        else
+            $cities[] = $this->view_data;
+        $count = count($cities);
+
+        $total_pages = ceil($count / 2);
+
+        for ($i = 0; $i < $count; $i++){
+            echo '<tr>';
+            echo '<td><a href="/city/show/' . $cities[$i]->id . '">' . $cities[$i]->getPavadinimas() . '</td>';
+            echo '<td>' . $cities[$i]->getPlotas() . '</td>';
+            echo '<td>' . $cities[$i]->getGyventojai() . '</td>';
+            echo '<td>' . $cities[$i]->getPasto_kodas() . '</td>';
+            echo '<td><a href="/city/edit/' . $cities[$i]->id . '">Edit</td>';
+            echo '<td><a href="/city/delete/' . $cities[$i]->id . '">Delete</td>';
+
+            echo '</tr>';
+        }
+        echo '</tbody>';
+        echo '</table>';
+
+        echo '<div style="text-align: center">';
+        $limit=3;
+        $pn=1;
+
+
+        if(!isset($_POST['search'])) {                                  // Check if 'search' value has not been set
+
+            $query = '
+                    SELECT COUNT(*)
+                    FROM `Miestas`
+                    WHERE `Miestas`.`salis_fk` = "' . $cities[0]->getSalis_fk() . '"
+            ';
+
+            if(isset($_POST['from']) && isset($_POST['to'])){           // Check if these variables have been set (filter button pressed in index view)
+                $query .= "AND (`sukurtas` BETWEEN '".$_SESSION['fromCity']."' AND '".$_SESSION['toCity']."')";
+            }
+
+            $currCount = count($this->view_data);                       // Get count of currently displayed data
+            $total_records = Db::queryDB($query)->fetchColumn();        // Get count of all data
+
+            if($currCount < $limit)                                     // Check if currently displayed data count is lower than the limit
+                $total_records = $currCount;                            // If yes, set total_records to currently displayed data count
+
+            $total_pages = ceil($total_records / $limit);         // Calculate page count
+
+            $pagLink = "";
+
+            for ($i = 1; $i <= $total_pages; $i++) {                    // Iterate through page count
+
+                if ($_SESSION['fromCity'] != '' && $_SESSION['toCity'] != ''){      // Check if these variables from the session are set
+                    $pagLink .= "  <a style='font-size: 15px; ' href='/city/filter/" . $this->view_id . "/?page=" . $i . "'>" . $i . "</a>";    // If yes, add a number with a link to filltered page
+                }
+                else
+                    $pagLink .= "  <a style='font-size: 15px; ' href='/city/index/" . $this->view_id . "/?page=" . $i . "'>" . $i . "</a>";     // If no, add a number with a link to simple index page
+
+            };
+            echo $pagLink;
+            echo '</div>';
+        }
+
+    ?>
+    </tbody>
+</table>

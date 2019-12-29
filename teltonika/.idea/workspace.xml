@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d68d1cbc-cd87-4d91-a249-fc9bfbd1b44f" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="ProjectId" id="1VOVQV0t3mx4UeTYiYb7mK8e6Yf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/views/city" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/views" />
+      <recent name="$PROJECT_DIR$/views/country" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/app" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/views/city" />
+      <recent name="$PROJECT_DIR$/views/country" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d68d1cbc-cd87-4d91-a249-fc9bfbd1b44f" name="Default Changelist" comment="" />
+      <created>1577124112294</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1577124112294</updated>
+      <workItem from="1577124113593" duration="18972000" />
+      <workItem from="1577181533057" duration="29293000" />
+      <workItem from="1577270678632" duration="3366000" />
+      <workItem from="1577283545783" duration="5588000" />
+      <workItem from="1577305217634" duration="6455000" />
+      <workItem from="1577359240652" duration="4998000" />
+      <workItem from="1577386444795" duration="18557000" />
+      <workItem from="1577435931943" duration="21227000" />
+      <workItem from="1577475164311" duration="76000" />
+      <workItem from="1577476105814" duration="7177000" />
+      <workItem from="1577540800275" duration="55045000" />
+      <workItem from="1577652902647" duration="5035000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="588" y="214" width="800" height="677" key="#SQL_Dialects" timestamp="1577272928001">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="588" y="214" width="800" height="677" key="#SQL_Dialects/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1577272928001" />
+    <state x="726" y="301" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1577144317743">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="726" y="301" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1577144317743" />
+    <state x="712" y="366" width="585" height="373" key="NewPhpClassDialog" timestamp="1577550903676">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="712" y="366" width="585" height="373" key="NewPhpClassDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1577270848259" />
+    <state x="712" y="366" key="NewPhpClassDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1577550903676" />
+    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1577191959113">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1577191959113" />
+    <state x="657" y="253" key="run.anything.popup" timestamp="1577440961206">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1577440961206" />
+  </component>
+</project>

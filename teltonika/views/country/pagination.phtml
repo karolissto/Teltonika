@@ -1,0 +1,38 @@
+<div style="text-align: center">
+
+    <?php
+    $limit = $_SESSION['limit'];                                    // Get 'limit' variable from the session
+    $pn=1;
+
+    $sql = "SELECT COUNT(*) FROM Salis";                            // Set query for data count
+    if(isset($_POST['from']) && isset($_POST['to'])){               // Check if these variables have been set (filter button pressed in index view)
+        $sql .= " WHERE `Salis`.`sukurtas` BETWEEN '".$_SESSION['from']."' AND '".$_SESSION['to']."'";  // If yes, add additional query
+    }
+
+    $currCount = count($this->view_data);                           // Get count of currently displayed data
+
+    $total_records = Db::queryDB($sql)->fetchColumn();              // Get count of all data
+
+    if($currCount < $limit)                                         // Check if currently displayed data count is lower than the limit
+        $total_records = $currCount;                                // If yes, set total_records to currently displayed data count
+
+    $total_pages = ceil($total_records / $limit);             // Calculate page count
+
+    $pagLink = "";
+
+    if (!isset($_POST['search'])) {                                 // Check if 'search' value has not been set
+        for ($i = 1; $i <= $total_pages; $i++) {                    // If yes, iterate through page count
+            if ($_SESSION['from'] != '' && $_SESSION['to'] != '')   // Check if these variables from the session are set
+                $pagLink .= "  <a style='font-size: 15px; ' href='/country/filter/?page=" . $i . "'>" . $i . "</a>";    // If yes, add a number with a link to filltered page
+            else
+                $pagLink .= "  <a style='font-size: 15px; ' href='/country/index/?page=" . $i . "'>" . $i . "</a>";     // If no, add a number with a link to simple index page
+
+
+        };
+    }
+    echo $pagLink;
+
+    ?>
+
+
+</div>

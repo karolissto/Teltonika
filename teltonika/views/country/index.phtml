@@ -1,0 +1,72 @@
+
+<?php include VIEW . 'header.phtml';?>
+    <h1 align="center">Country page</h1> <br>
+
+    <form action="/country/search" method="POST">
+        <div class="input-group center">
+
+            <input type="text" class="form-control" name="search" id="search" placeholder="Search" >
+            <button class="btn " type="submit"  style="text-align: center; "><i class="fas fa-search"></i></button>
+        </div>
+    </form>
+    <form action="/country/filter" method="POST">
+        <div class="input-group center">
+            <div class="input-group-prepend" ">
+                <span class="input-group-text">Created from/to</span>
+            </div>
+            <input type="date" class="form-control" name="from" id="from" class="form-control" required>
+            <input type="date" class="form-control" name="to" id="to" class="form-control" required>
+            <button class="btn " type="submit"  style="text-align: center; "><i class="fas fa-filter"></i></button>
+        </div>
+    </form>
+
+    <input type='hidden' id='sort' value='asc'>
+    <table class="table center" >
+        <thead style="background-color: blue">
+        <tr>
+            <th scope="col"><a class="sort" href="/country/sortCountries/">Name</a></th>
+            <th scope="col">Area</th>
+            <th scope="col">Population</th>
+            <th scope="col">Phone code</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+            <th scope="col " width="50px" style="text-align: center; background-color: #5a83b7">
+                    <a class="sort" href="/country/add/">
+                        <i class="fas fa-plus"></i>
+                    </a>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <h2 class="center"><?php if( !empty($_SESSION['msg'])) {echo  $_SESSION['msg'];  $_SESSION['msg'] = '';}?></h2>
+        <?php
+            if(is_array($this->view_data))
+                $countries = $this->view_data;
+            else
+                $countries[] = $this->view_data;
+
+            foreach ($countries as $country) {
+
+                echo '<tr>';
+                echo '<td><a href="/city/index/' . $country->id . '">' . $country->getPavadinimas() . '</td>';
+                echo '<td>' . $country->getPlotas() . '</td>';
+                echo '<td>' . $country->getGyventojai() . '</td>';
+                echo '<td>' . $country->getTel_kodas() . '</td>';
+                echo '<td><a href="/country/edit/' . $country->id . '">Edit</td>';
+                echo '<td><a href="/country/delete/' . $country->id . '">Delete</td>';
+
+                echo '</tr>';
+
+            }
+            echo '</tbody>';
+            echo '</table>';
+
+            include VIEW . '/country/pagination.phtml';
+        ?>
+        </tbody>
+
+    </table>
+
+
+<?php  include VIEW . 'footer.phtml';?>

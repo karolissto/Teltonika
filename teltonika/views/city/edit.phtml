@@ -1,0 +1,54 @@
+<?php include VIEW . 'header.phtml';?>
+
+    <table class="table center" >
+        <?php
+        echo ' <form method="post" action="/city/doEdit/' . $this->view_data->id . '">';
+        ?>
+            <thead style="background-color: blue">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Area</th>
+                <th scope="col">Population</th>
+                <th scope="col">Post code</th>
+                <th scope="col " style="padding: 0; padding-left: 10px; padding-bottom: 11px; align-content: center; background-color: #5a83b7" >
+                    <?php echo '<a class="sort" href="/city/index/' . $this->view_data->salis_fk . '"><i class="fas fa-chevron-left"></i></a>'; ?>
+                </th>
+                <th scope
+                <th scope="col " style="padding: 0; padding-left: 10px; padding-bottom: 5px; align-content: center; background-color: #5a83b7" >
+                    <button class="btn " type="submit" style="text-align: center; "><i class="fas fa-plus"></i></button>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <h2 class="center"><?php if($msg != '') {echo $msg;}?></h2>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <input type="text" name="name" id="name" class="form-control" value="<?php echo $this->view_data->pavadinimas;?>" maxlength="50" required>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input type="number" name="area" id="area" class="form-control" value="<?php echo $this->view_data->plotas;?>" max="9999999999" required>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input type="number" name="population" id="population" class="form-control" value="<?php echo $this->view_data->gyventojai;?>" max="9999999999" required>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input type="number" name="post_code" id="post_code" class="form-control" value="<?php echo $this->view_data->pasto_kodas;?>" max="9999999999" required>
+                    </div>
+                </td>
+            </tr>
+
+
+            </tbody>
+        </form>
+    </table>
+
+
+<?php include VIEW . 'footer.phtml';?>

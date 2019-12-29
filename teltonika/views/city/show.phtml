@@ -1,0 +1,34 @@
+<?php include VIEW . 'header.phtml';?>
+    <h1 class="title" > <?php echo $this->view_data->getPavadinimas() ?></h1> <br>
+    <table class="table center" >
+        <thead style="background-color: blue">
+        <tr>
+            <?php echo '<th scope="col"><a class="sort" href="/country/show/' . $this->view_data->id . '">' . "Name" . '</th>'; ?>
+            <th scope="col">Area</th>
+            <th scope="col">Population</th>
+            <th scope="col">Post code</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+            <th scope="col " style="padding: 0; padding-left: 10px; padding-bottom: 11px; align-content: center; background-color: #5a83b7" >
+                <?php echo '<a class="sort" href="/city/index/' . $this->view_data->salis_fk . '"><i class="fas fa-chevron-left"></i></a>'; ?>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <h2 class="center"><?//php if($msg != '') {echo $msg;}?></h2>
+        <?php
+
+            echo '<tr>';
+            echo '<td>' . $this->view_data->getPavadinimas() . '</td>' ;
+            echo '<td>' . $this->view_data->getPlotas() . '</td>' ;
+            echo '<td>' . $this->view_data->getGyventojai() . '</td>' ;
+            echo '<td>' . $this->view_data->getPasto_kodas() . '</td>' ;
+            echo '<td><a href="/city/edit/' . $this->view_data->id . '">Edit</td>';
+            echo '<td><a href="/city/delete/' . $this->view_data->id . '">Delete</td>';
+            echo '</tr>';
+
+        ?>
+        </tbody>
+    </table>
+
+<?php include VIEW . 'footer.phtml';?>

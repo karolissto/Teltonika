@@ -1,0 +1,23 @@
+.center {
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+}
+
+h1.title {
+    font-size: 100px;
+    text-align: center;
+}
+
+a.sort {
+    text-decoration: none !important;
+    color: black;
+}
+
+h2.add{
+    text-align: center;
+    background-color: blue;
+
+    margin-left: 300px;
+    width: 50px;
+}
