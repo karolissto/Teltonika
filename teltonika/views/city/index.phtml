@@ -94,9 +94,9 @@
 
             if($currCount < $limit)                                     // Check if currently displayed data count is lower than the limit
                 $total_records = $currCount;                            // If yes, set total_records to currently displayed data count
-            echo $total_records . ' ' . $limit;
+
             $total_pages = ceil($total_records / $limit);         // Calculate page count
-            echo $total_pages;
+
             $pagLink = "";
 
             for ($i = 1; $i <= $total_pages; $i++) {                    // Iterate through page count
