@@ -97,8 +97,10 @@ class countryController extends Controller
                 $query = "UPDATE `Salis` 
                         SET `pavadinimas` = '$name' , `plotas` = $area, `gyventojai` = $population, `tel_kodas` = $phone_code, `sukurtas` = '" . date('Y-m-d') . "'
                         WHERE `Salis`.`id` = '$id'";
-                $this->index();                                     // Call index function
+
                 Db::queryDB($query);                                // Call database's function
+
+                $this->index();                                     // Call index function
             } else {
                 $this->error();
             }
