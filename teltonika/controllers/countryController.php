@@ -176,8 +176,7 @@ class countryController extends Controller
     // Filters data
     public function filter(){
         session_start();                                    // Start a session
-
-        if(isset($_POST['from']) && isset($_POST['to']) && ctype_alnum($_POST['to']) && ctype_alnum($_POST['from'])){   // Check if these variables have been set (filter button pressed in index view)
+        if(isset($_POST['from']) && isset($_POST['to']) ){   // Check if these variables have been set (filter button pressed in index view)
             $_SESSION['from'] = $_POST['from'];             // Set session variables
             $_SESSION['to'] = $_POST['to'];
 

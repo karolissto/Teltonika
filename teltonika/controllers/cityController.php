@@ -165,7 +165,7 @@ class cityController extends Controller
     public function filter($id='',$name=''){
         session_start();                                    // Start a session
 
-        if(isset($_POST['from']) && isset($_POST['to']) && ctype_alnum($_POST['to']) && ctype_alnum($_POST['from'])){   // Check if these variables have been set (filter button pressed in index view)
+        if(isset($_POST['from']) && isset($_POST['to'])){   // Check if these variables have been set (filter button pressed in index view)
             $_SESSION['fromCity'] = $_POST['from'];         // Set session variables
             $_SESSION['toCity'] = $_POST['to'];
 
